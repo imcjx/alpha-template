@@ -1,24 +1,22 @@
-import React, { Component } from 'react'
-import { Switch, withRouter } from "react-router-dom";
-import FrontendAuth from "./router/FrontendAuth";
+import React from 'react'
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import RouteAuth from './router/RouteAuth'
+import RouterConfig from './router/RouterConfig'
 import MainTabBar from './components/MainTabBar'
 import './App.css'
 
-class App extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-  render() {
-    const {pathname} = this.props.history.location;
-    return (
-      <div>
-          <Switch>
-            <FrontendAuth></FrontendAuth>
-          </Switch>
-          {pathname.indexOf('main') == -1 ? '' : <MainTabBar/>}
-      </div>
-    )
-  }
+const App = (props) => {
+  const { pathname } = props.history.location;
+  return (
+    <div>
+      <Router>
+        <Switch>
+          <RouteAuth routerConfig={RouterConfig} />
+        </Switch>
+      </Router>
+      {pathname.indexOf('main') == -1 ? '' : <MainTabBar />}
+    </div>
+  )
 }
 
-export default withRouter(App)
+export default App;
