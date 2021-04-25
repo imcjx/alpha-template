@@ -1,0 +1,20 @@
+ul {
+    display: flex;
+    position: fixed;
+    list-style: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+li {
+    background-color: #bfa;
+    flex: 1;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
